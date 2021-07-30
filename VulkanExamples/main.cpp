@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	// vulkanExamples
-	VulkanInitializer viewportToTextureExample = VulkanInitializer(window);
+	VulkanInitializer vulkanInitializer = VulkanInitializer(window);
 
 	// main loop
 	SDL_Event eventInfo;
