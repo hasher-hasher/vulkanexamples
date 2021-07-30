@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SDL.h"
 
-#include "VulkanInitializer.h"
+#include "ViewportToTexture.cpp"
 
 int main(int argc, char* argv[]) {
 	// setting up SDL
@@ -28,8 +28,9 @@ int main(int argc, char* argv[]) {
 		throw std::runtime_error("failed to create SDL window");
 	}
 
-	// vulkanExamples
 	VulkanInitializer vulkanInitializer = VulkanInitializer(window);
+
+	ViewportToTexture viewportToTexture = ViewportToTexture(window, &vulkanInitializer);
 
 	// main loop
 	SDL_Event eventInfo;

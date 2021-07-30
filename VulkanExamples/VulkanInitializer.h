@@ -23,14 +23,32 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
 	return VK_FALSE;
 }
 
+static void ASSERT(VkResult result, const char* message = nullptr)
+{
+	if (result != VK_SUCCESS) {
+		std::runtime_error(message + result);
+	}
+}
+
+static void ASSERT(uint32_t result, const char* message = nullptr)
+{
+	if (result == 0) {
+		std::runtime_error(message + result);
+	}
+}
+
 class VulkanInitializer
 {
 public:
 	VulkanInitializer(SDL_Window *window);
 	~VulkanInitializer();
 
-	//void createInstance(SDL_Window* window);
-private:
+	VkInstance instance = VK_NULL_HANDLE;
+	VkSurfaceKHR surface = VK_NULL_HANDLE;
+	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
+	VkDevice device = VK_NULL_HANDLE;
+	VkQueue queue = VK_NULL_HANDLE;
+
 	// enable validation layers
 	bool validationLayer = true;
 
@@ -51,15 +69,7 @@ private:
 		//VK_EXT_DESCRIPTOR_INDEXING_EXTENSION_NAME  // add the array texture feature in the frag shader
 	};
 
-	VkInstance instance = VK_NULL_HANDLE;
-	VkSurfaceKHR surface = VK_NULL_HANDLE;
-	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
-	VkDevice device = VK_NULL_HANDLE;
-	VkQueue queue = VK_NULL_HANDLE;
-
 	// functions
-	void ASSERT(VkResult result, const char* message);
-
 	void CreateInstance(SDL_Window* window);
 	void CreateValidationLayer();
 	void CreateSurface(SDL_Window* window);

@@ -25,13 +25,6 @@ VulkanInitializer::~VulkanInitializer()
 	vkDestroyInstance(instance, nullptr);
 }
 
-void VulkanInitializer::ASSERT(VkResult result, const char *message = nullptr)
-{
-	if (result != VK_SUCCESS) {
-		std::runtime_error(message + result);
-	}
-}
-
 void VulkanInitializer::CreateInstance(SDL_Window* window)
 {
 	// getting nedded extensions from SDL

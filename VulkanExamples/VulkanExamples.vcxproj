@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ViewportToTexture.cpp" />
     <ClCompile Include="VulkanInitializer.cpp" />
   </ItemGroup>
   <ItemGroup>
