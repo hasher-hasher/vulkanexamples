@@ -12,6 +12,8 @@ VulkanInitializer::VulkanInitializer(SDL_Window* window)
 
 VulkanInitializer::~VulkanInitializer()
 {
+	vkDeviceWaitIdle(device);
+
 	// destroy validation layer
 	PFN_vkDestroyDebugUtilsMessengerEXT pfnDestroyDebugUtilsMessengerEXT = (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(
 		instance, "vkDestroyDebugUtilsMessengerEXT");

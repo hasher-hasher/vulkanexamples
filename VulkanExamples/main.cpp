@@ -30,7 +30,8 @@ int main(int argc, char* argv[]) {
 
 	VulkanInitializer vulkanInitializer = VulkanInitializer(window);
 
-	ViewportToTexture viewportToTexture = ViewportToTexture(window, &vulkanInitializer);
+	// choose the example you want to be executed
+	auto exampleCode = ViewportToTexture(window, &vulkanInitializer);
 
 	// main loop
 	SDL_Event eventInfo;
@@ -43,6 +44,8 @@ int main(int argc, char* argv[]) {
 				isApplicationRunning = false;
 			}
 		}
+
+		exampleCode.Draw();
 	}
 
 	SDL_Quit();
