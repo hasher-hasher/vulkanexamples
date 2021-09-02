@@ -22,9 +22,11 @@
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ViewportToTexture.cpp" />
+    <ClCompile Include="VulkanBase.cpp" />
     <ClCompile Include="VulkanInitializer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="VulkanBase.h" />
     <ClInclude Include="VulkanInitializer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
